@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
       ":hover": {
         backgroundColor: "#f0f0f0", 
         cursor: "pointer",
-        boxShadow:10
+        boxShadow:15,
       } 
     }}>
       <CardMedia
