@@ -1,0 +1,102 @@
+import React from 'react';
+import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
+import Slider from 'react-slick';
+import { Bolt } from '@mui/icons-material';
+
+const Home = () => {
+  {/* Carrucel */}
+  const items = [  
+    {
+      name: "",
+      description: "",
+      image: "https://i.ibb.co/TtLNJbL/1.png"
+    },
+    {
+      name: "",
+      description: "",
+      image: "https://i.ibb.co/F4ZxrYd/2.png"
+    },
+  ];
+{/* Cards Marcas referidas Del inicio */}
+  const brands = [ 
+    {
+      name: "Nike",
+      description: "Las mejores zapatillas ",
+      image: "https://www.brandemia.org/wp-content/uploads/2011/09/logo_nike_principal.jpg"
+    },
+    {
+      name: "Lacoste",
+      description: "only chetos",
+      image: "https://turbologo.com/articles/wp-content/uploads/2020/02/Lacoste-logo-.png"
+    },
+    {
+      name: "I love 47 Street!",
+      description: "La mejor ropa de mujer",
+      image: "https://pbs.twimg.com/profile_images/1050391324690698241/kEw0plll_400x400.jpg"
+    },
+    {
+        name: "Jewelry",
+        description: "Las mejores joyas",
+        image: "https://content.wepik.com/statics/26126067/preview-page3.jpg"
+      },
+      {
+        name: "The North Face",
+        description: "Vestite a la moda",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/TheNorthFace_logo.svg/1200px-TheNorthFace_logo.svg.png"
+      },
+      {
+        name: "Adidas",
+        description: "Adidas Tienda deportiva Por excelencia",
+        image: "https://ams3.digitaloceanspaces.com/graffica/2022/12/Three-Bars-adidas-logo-1.jpg-1024x570.webp"
+      },
+      
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
+  return (
+    <Box sx={{textAlign:"center"}}>
+      <Slider {...settings}>
+        {items.map((item, i) => (
+          <Box key={i} sx={{ position: 'relative' }}>
+            <img src={item.image} alt={item.name} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
+            <Typography variant="h4" sx={{ position: 'absolute', bottom: 20, left: 20, color: 'white' }}>
+              {item.name}
+            </Typography>
+          </Box>
+        ))}
+      </Slider>
+      <Typography variant='h6' sx={{fontWeight:"bold", mt:10, mb:5}}>Marcas Asociadas</Typography>
+      <Grid container spacing={2} sx={{ p: "0px 200px"  }}>
+        {brands.map((brand, i) => (
+          <Grid item xs={12} sm={6} md={4} key={i}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={brand.image}
+                alt={brand.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {brand.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {brand.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
+export default Home;

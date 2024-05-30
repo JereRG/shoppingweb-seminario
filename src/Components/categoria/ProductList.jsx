@@ -43,9 +43,10 @@ const ProductList = ({ search, setSearch }) => {
   }, []);
 
   const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(search.toLowerCase()) &&
+    product.title && typeof product.title === 'string' && product.title.toLowerCase().includes(search.toLowerCase()) &&
     (selectedCategories.length === 0 || selectedCategories.includes(product.category))
   );
+  
 
   const handleCategoryChange = category => {
     const updatedCategories = selectedCategories.includes(category)

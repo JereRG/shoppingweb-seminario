@@ -4,27 +4,27 @@ import { Card, CardContent, Typography, CardMedia } from '@mui/material';
 const ProductCard = ({ product }) => {
   return (
     <Card sx={{ 
-        border:"solid 1px #f0f0f0",
-      maxWidth: 345, 
-      height: "100%", 
-      display: "flex", 
-      flexDirection: "column", 
-      ":hover": {
-        backgroundColor: "#f0f0f0", 
-        cursor: "pointer",
-        boxShadow:15,
-      } 
-    }}>
+        border: "solid 1px #f0f0f0",
+        maxWidth: 345, 
+        height: "100%", 
+        display: "flex", 
+        flexDirection: "column", 
+        ":hover": {
+          backgroundColor: "#f0f0f0", 
+          cursor: "pointer",
+          boxShadow: 15,
+        } 
+      }}>
       <CardMedia
         component="img"
         height="210"
-        image={product.image}
-        alt={product.title}
+        image={product.image || 'default-image-url'} // Default image URL
+        alt={product.title || 'Sin título'}
         sx={{ objectFit: "contain" }}
       />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h6" component="div" sx={{ fontSize: "1.2rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          {product.title}
+          {product.title || 'Sin título'}
         </Typography>
         <Typography variant="h4" color="text.primary">
           ${product.price}

@@ -4,6 +4,7 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import NavDrawer from './NavDrawer';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -46,17 +47,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Nav = ({ search, setSearch }) => {
+const Nav = ({ search, setSearch, setCurrentPage }) => {
   return (
     <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: 2 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml:10, mr:10 }}>
-        <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold",}}>
-          Shopping
-        </Typography>
-
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: 10, mr: 10 }}>
+        <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
+          <NavDrawer setCurrentPage={setCurrentPage} />
+          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold" }}>
+            Shopping
+          </Typography>
+        </Box>
         <Search>
           <SearchIconWrapper>
-            <SearchIcon sx={{color:"#939597"}} />
+            <SearchIcon sx={{ color: "#939597" }} />
           </SearchIconWrapper>
           <StyledInputBase
             placeholder="Buscar…"
@@ -64,13 +67,9 @@ const Nav = ({ search, setSearch }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </Search>
-        <Box sx={{
-            display:"flex",
-            gap:3
-        }}>
-            <PersonIcon fontSize='large' />
-            <LocalGroceryStoreIcon fontSize='large'/>
-
+        <Box sx={{ display: "flex", gap: 3 }}>
+          <PersonIcon fontSize='large' />
+          <LocalGroceryStoreIcon fontSize='large' />
         </Box>
       </Box>
     </Box>
