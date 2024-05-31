@@ -1,7 +1,5 @@
-import React from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
 import Slider from 'react-slick';
-import { Bolt } from '@mui/icons-material';
 
 const Home = () => {
   {/* Carrucel */}
@@ -26,7 +24,7 @@ const Home = () => {
     },
     {
       name: "Lacoste",
-      description: "only chetos",
+      description: "Un poco de aire en la Tierra",
       image: "https://turbologo.com/articles/wp-content/uploads/2020/02/Lacoste-logo-.png"
     },
     {
@@ -64,11 +62,8 @@ const Home = () => {
     <Box sx={{textAlign:"center"}}>
       <Slider {...settings}>
         {items.map((item, i) => (
-          <Box key={i} sx={{ position: 'relative' }}>
+          <Box key={i}>
             <img src={item.image} alt={item.name} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
-            <Typography variant="h4" sx={{ position: 'absolute', bottom: 20, left: 20, color: 'white' }}>
-              {item.name}
-            </Typography>
           </Box>
         ))}
       </Slider>

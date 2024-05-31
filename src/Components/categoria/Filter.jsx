@@ -1,5 +1,4 @@
-// src/components/Filter.jsx
-import React from 'react';
+import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
 
 const Filter = ({ search, setSearch }) => {
@@ -12,6 +11,11 @@ const Filter = ({ search, setSearch }) => {
       onChange={(e) => setSearch(e.target.value)}
     />
   );
+};
+
+Filter.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 export default Filter;

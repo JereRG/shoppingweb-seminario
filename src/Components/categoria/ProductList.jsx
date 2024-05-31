@@ -1,11 +1,11 @@
-// ProductList.js
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Box, Grid, Skeleton } from '@mui/material';
 import ProductCard from './ProductCard';
 import CategoryFilter from './CategoryFilter';
 
-const ProductList = ({ search, setSearch }) => {
+const ProductList = ({ search, setSearch, addToCart }) => {
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -75,7 +75,7 @@ const ProductList = ({ search, setSearch }) => {
           ) : (
             filteredProducts.map(product => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-                <ProductCard product={product} />
+                <ProductCard product={product} addToCart={addToCart} />
               </Grid>
             ))
           )}
@@ -83,6 +83,12 @@ const ProductList = ({ search, setSearch }) => {
       </Box>
     </>
   );
+};
+
+ProductList.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductList;

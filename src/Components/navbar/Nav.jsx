@@ -1,10 +1,11 @@
-import React from 'react';
-import { Box, Typography, InputBase } from '@mui/material';
+import PropTypes from 'prop-types';
+import { Box, Typography, InputBase, Badge } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import NavDrawer from './NavDrawer';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,14 +48,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Nav = ({ search, setSearch, setCurrentPage }) => {
+const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
   return (
     <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: 10, mr: 10 }}>
         <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
-          <NavDrawer setCurrentPage={setCurrentPage} />
-          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold" }}>
-            Shopping
+          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold" }} onClick={() => setCurrentPage('Inicio')}>
+            ShoppingWeb
           </Typography>
         </Box>
         <Search>
@@ -67,13 +67,23 @@ const Nav = ({ search, setSearch, setCurrentPage }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </Search>
-        <Box sx={{ display: "flex", gap: 3 }}>
+        <Box sx={{ display: "flex", gap: 3, alignItems: 'center' }}>
           <PersonIcon fontSize='large' />
-          <LocalGroceryStoreIcon fontSize='large' />
+          <Inventory2Icon fontSize='large' onClick={() => setCurrentPage('Productos')} />
+          <Badge badgeContent={cartItemCount} color="error">
+            <LocalGroceryStoreIcon fontSize='large' onClick={() => setCurrentPage('Carrito')} />
+          </Badge>
         </Box>
       </Box>
     </Box>
   );
+};
+
+Nav.propTypes = {
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  cartItemCount: PropTypes.number.isRequired,
 };
 
 export default Nav;
