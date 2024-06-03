@@ -5,6 +5,7 @@ import Home from './Components/inicio/Home';
 import ProductList from './Components/categoria/ProductList';
 import Cart from './Components/cart/Cart';
 import CheckoutForm from './Components/cart/CheckoutForm';
+import ProductDetails from './Components/categoria/ProductDetails';
 import 'normalize.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,17 +14,18 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState('Inicio');
   const [cart, setCart] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const addToCart = (product) => {
     setCart(prevCart => {
-        const existingProduct = prevCart.find(item => item.id === product.id);
-        if (existingProduct) {
-            return prevCart.map(item =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-            );
-        } else {
-            return [...prevCart, { ...product, quantity: 1 }];
-        }
+      const existingProduct = prevCart.find(item => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
     });
   };
 
@@ -33,10 +35,15 @@ const App = () => {
 
   const updateQuantity = (productId, quantity) => {
     setCart(prevCart =>
-        prevCart.map(product =>
-            product.id === productId ? { ...product, quantity: quantity } : product
-        )
+      prevCart.map(product =>
+        product.id === productId ? { ...product, quantity: quantity } : product
+      )
     );
+  };
+
+  const viewProductDetails = (product) => {
+    setSelectedProduct(product);
+    setCurrentPage('DetallesProducto');
   };
 
   const renderPage = () => {
@@ -44,7 +51,9 @@ const App = () => {
       case 'Inicio':
         return <Home />;
       case 'Productos':
-        return <ProductList search={search} setSearch={setSearch} addToCart={addToCart} />;
+        return <ProductList search={search} setSearch={setSearch} addToCart={addToCart} viewProductDetails={viewProductDetails} />;
+      case 'DetallesProducto':
+        return <ProductDetails product={selectedProduct} addToCart={addToCart} setCurrentPage={setCurrentPage} />;
       case 'Carrito':
         return <Cart cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} setCurrentPage={setCurrentPage} />;
       case 'Formulario':
@@ -57,7 +66,7 @@ const App = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: "#eeeeee" }}>
+    <Box sx={{ bgcolor: "#eeeeee", position: 'relative'}}>
       <Nav search={search} setSearch={setSearch} setCurrentPage={setCurrentPage} cartItemCount={cart.length} />
       {renderPage()}
     </Box>
