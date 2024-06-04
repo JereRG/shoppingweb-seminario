@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.contenedor {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 350px;
+    background: #F8F9FD;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(236, 227, 227) 100%);
+    border-radius: 40px;
+    padding: 25px 35px;
+    border: 5px solid rgba(44, 44, 44, 0);
+    box-shadow:
+  0.5px 1px 1.6px rgba(0, 0, 0, 0.07),
+  1.2px 2.2px 3.6px rgba(0, 0, 0, 0.138),
+  2.1px 3.8px 6.3px rgba(0, 0, 0, 0.203),
+  3.4px 6px 10px rgba(0, 0, 0, 0.265),
+  5.2px 9.3px 15.5px rgba(0, 0, 0, 0.326),
+  8.1px 14.5px 24.1px rgba(0, 0, 0, 0.39),
+  13.5px 24px 40px rgba(0, 0, 0, 0.478),
+  27px 48px 80px rgba(0, 0, 0, 0.79)
+;
+    margin: 20px;
+    min-height: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 100px auto;
+  }
+  
+  .heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 22px;
+    color:#000000;
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .form .input {
+    width: 90%;
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: #df403242 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+    transition: 400ms;
+  }
+  
+  .form .input::-moz-placeholder {
+    color: rgb(255, 0, 0);
+  }
+  
+  .form .input::placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input:focus {
+    outline: none;
+    border-inline: 2px solid #DF3F32;
+  }
+  
+  .form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .form .forgot-password a {
+    font-size: 11px;
+    color: #DF3F32;
+    text-decoration: none;
+  }
+  
+  .form .login-button {
+    display: block;
+    width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #DF3F32 0%, #4d1a15 100%);
+    color: rgb(0, 0, 0);
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: #df403286 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: #df403286 0px 23px 10px -20px;
+  }
+  
+  .form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: #DF3F32 0px 15px 10px -10px;
+  }
+  
+  .social-account-container {
+    margin-top: 25px;
+  }
+  .social-accounts{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+  }
+  
+  
+  .agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .agreement a {
+    text-decoration: none;
+    color: #DF3F32;
+    font-size: 9px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://images.unsplash.com/photo-1541596993953-970dd2ffdbdb?q=80&w=1736&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+}

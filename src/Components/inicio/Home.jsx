@@ -1,5 +1,6 @@
 import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
 import Slider from 'react-slick';
+import SubscriptionForm from './SubscriptionForm';
 
 const Home = () => {
   {/* Carrucel */}
@@ -59,11 +60,12 @@ const Home = () => {
   };
 
   return (
+    <>
     <Box sx={{textAlign:"center"}}>
       <Slider {...settings}>
         {items.map((item, i) => (
-          <Box key={i}>
-            <img src={item.image} alt={item.name} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
+          <Box key={i} sx={{mr:2,ml:2,  textAlign:"center", bgcolor:"black", alignItems:"center", display:"flex", justifyContent:"center"}}>
+            <img src={item.image} alt={item.name} style={{width: '90%', height: '400px', objectFit: 'cover', margin: "auto" }} />
           </Box>
         ))}
       </Slider>
@@ -71,7 +73,14 @@ const Home = () => {
       <Grid container spacing={2} sx={{ p: "0px 200px"  }}>
         {brands.map((brand, i) => (
           <Grid item xs={12} sm={6} md={4} key={i}>
-            <Card>
+            <Card sx={{
+                  ":hover":{
+                    bgcolor:"lightgray",
+                    transition:"400ms",
+                    boxShadow: 10,
+
+                  }
+                }}>
               <CardMedia
                 component="img"
                 height="200"
@@ -91,6 +100,10 @@ const Home = () => {
         ))}
       </Grid>
     </Box>
+      <Box component={"footer"} sx={{bgcolor:"#2b2b2b", p:5, mt:5}}>
+      <SubscriptionForm />
+      </Box>
+      </>
   );
 };
 
