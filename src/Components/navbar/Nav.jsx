@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import { Box, Typography, InputBase, Badge } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
-import PersonIcon from '@mui/icons-material/Person';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
-
+import AccountMenu from './AccountMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -50,10 +49,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
   return (
-    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: 2 }}>
+    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: 2 , transition:"200ms"}}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: 10, mr: 10 }}>
         <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
-          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold" }} onClick={() => setCurrentPage('Inicio')}>
+          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold", cursor: 'pointer' , ":hover":{
+            color:"white",
+            transition:"300ms"
+          }}} onClick={() => setCurrentPage('Inicio')}>
             ShoppingWeb
           </Typography>
         </Box>
@@ -68,11 +70,17 @@ const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
           />
         </Search>
         <Box sx={{ display: "flex", gap: 3, alignItems: 'center' }}>
-          <PersonIcon fontSize='large' />
-          <Inventory2Icon fontSize='large' onClick={() => setCurrentPage('Productos')} />
+          <Inventory2Icon fontSize='large' sx={{ cursor: 'pointer', ":hover":{
+            color:"white",
+            transition:"300ms"
+          } }} onClick={() => setCurrentPage('Productos')} />
           <Badge badgeContent={cartItemCount} color="error">
-            <LocalGroceryStoreIcon fontSize='large' onClick={() => setCurrentPage('Carrito')} />
+            <LocalGroceryStoreIcon fontSize='large' sx={{ cursor: 'pointer' , ":hover":{
+            color:"white",
+            transition:"300ms"
+          }}} onClick={() => setCurrentPage('Carrito')} />
           </Badge>
+          <AccountMenu />
         </Box>
       </Box>
     </Box>

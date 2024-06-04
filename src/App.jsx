@@ -9,12 +9,14 @@ import ProductDetails from './Components/categoria/ProductDetails';
 import 'normalize.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Login } from './Components/login/Login';
 
 const App = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState('Inicio');
   const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const addToCart = (product) => {
     setCart(prevCart => {
@@ -46,6 +48,11 @@ const App = () => {
     setCurrentPage('DetallesProducto');
   };
 
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+    setCurrentPage('Inicio');
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'Inicio':
@@ -65,8 +72,12 @@ const App = () => {
     }
   };
 
+  if (!isAuthenticated) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
+
   return (
-    <Box sx={{ bgcolor: "#eeeeee", position: 'relative'}}>
+    <Box sx={{ bgcolor: "#eeeeee", position: 'relative', minHeight: "100vh"}}>
       <Nav search={search} setSearch={setSearch} setCurrentPage={setCurrentPage} cartItemCount={cart.length} />
       {renderPage()}
     </Box>
