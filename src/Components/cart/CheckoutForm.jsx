@@ -40,7 +40,7 @@ const CheckoutForm = ({ cart }) => {
     };
 
     return (
-        <Box sx={{ p: 5, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+        <Box sx={{mr:20,ml:20, p: 5, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
             <Toaster
                 position="bottom-left"
                 reverseOrder={false}

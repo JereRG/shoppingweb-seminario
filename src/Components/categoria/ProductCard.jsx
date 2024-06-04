@@ -37,7 +37,7 @@ const ProductCard = ({ product, addToCart, viewProductDetails }) => {
         <Button variant="contained" color="error" startIcon={<LocalGroceryStore />} onClick={(e) => {
           e.stopPropagation();
           addToCart(product);
-        }} sx={{marginTop: "10px"}}>
+        }} sx={{marginTop: "10px", ml:3, mr:3, mb:2}}>
           Agregar al Carrito
         </Button>
     </Card>
