@@ -1,6 +1,6 @@
 import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
 import Slider from 'react-slick';
-import SubscriptionForm from './SubscriptionForm';
+import { Footer } from './Footer';
 
 const Home = () => {
   {/* Carrucel */}
@@ -100,9 +100,7 @@ const Home = () => {
         ))}
       </Grid>
     </Box>
-      <Box component={"footer"} sx={{bgcolor:"#2b2b2b", p:5, mt:5}}>
-      <SubscriptionForm />
-      </Box>
+    <Footer />
       </>
   );
 };
