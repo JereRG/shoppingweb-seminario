@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Box, Typography, TextField, Button, MenuItem, Select, FormControl, InputLabel, ListItemIcon, ListItemText, Grid } from '@mui/material';
 import { CreditCard, Payment, LocalAtm, AccountBalanceWallet, ShoppingBagOutlined } from '@mui/icons-material';
 import toast, { Toaster } from 'react-hot-toast';
+import CancelaciónCompra from './CancelacionCompra';
 
 const CheckoutForm = ({ cart }) => {
     const [formData, setFormData] = useState({
@@ -11,9 +12,11 @@ const CheckoutForm = ({ cart }) => {
         direccion: '',
         ciudad: '',
         codigoPostal: '',
-        telefono: '',   
+        telefono: '',
         metodoPago: ''
     });
+
+    const [showCancel, setShowCancel] = useState(false);
 
     const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
@@ -34,9 +37,9 @@ const CheckoutForm = ({ cart }) => {
             toast.error('Todos los campos son obligatorios');
             return;
         }
-
         toast.success('Formulario enviado correctamente');
-        console.log('Formulario enviado');
+        toast.success('Tu ID de compra es: 00123');
+        setShowCancel(true);
     };
 
     return (
@@ -161,9 +164,20 @@ const CheckoutForm = ({ cart }) => {
                     </FormControl>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" type="submit" startIcon={<ShoppingBagOutlined />} fullWidth onClick={handleSubmit}>
-                        Pagar Ahora
-                    </Button>
+                    {!showCancel ? (
+                        <Button 
+                            variant="contained" 
+                            color="success" 
+                            type="submit" 
+                            startIcon={<ShoppingBagOutlined />} 
+                            fullWidth 
+                            onClick={handleSubmit}
+                        >
+                            Pagar Ahora
+                        </Button>
+                    ) : (
+                        <CancelaciónCompra />
+                    )}
                 </Grid>
             </Grid>
         </Box>

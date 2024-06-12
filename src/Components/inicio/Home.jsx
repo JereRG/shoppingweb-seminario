@@ -17,7 +17,6 @@ const Home = () => {
     },
   ];
 
-  {/* Cards Marcas referidas Del inicio */}
   const brands = [ 
     {
       name: "Nike",
@@ -72,7 +71,8 @@ const Home = () => {
               bgcolor: "black", 
               alignItems: "center", 
               display: "flex", 
-              justifyContent: "center"
+              justifyContent: "center",
+              
             }}>
             <img 
               src={item.image} 
@@ -121,7 +121,6 @@ const Home = () => {
         ))}
       </Grid>
     </Box>
-    <Footer />
     </>
   );
 };

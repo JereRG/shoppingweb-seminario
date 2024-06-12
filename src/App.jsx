@@ -10,6 +10,8 @@ import 'normalize.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Login } from './Components/login/Login';
+import { Footer } from './Components/inicio/Footer';
+import { FormQueja } from './Components/inicio/FormQueja';
 
 const App = () => {
   const [search, setSearch] = useState('');
@@ -82,6 +84,7 @@ const App = () => {
       <Container maxWidth="lg" sx={{ pt: 4, pb: 6 }}>
         {renderPage()}
       </Container>
+      <Footer />
     </Box>
   );
 };

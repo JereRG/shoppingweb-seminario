@@ -49,7 +49,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
   return (
-    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: { xs: 1, sm: 2 }, transition: "200ms" }}>
+    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: { xs: 1, sm: 2 }, transition: "200ms", position:"sticky", top:"0", zIndex:"1000"  }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: { xs: 1, sm: 2, md: 5, lg: 10 }, mr: { xs: 1, sm: 2, md: 5, lg: 10 } }}>
         <Box sx={{ display: "flex", gap: { xs: 1, sm: 2, md: 3 }, alignItems: "center" }}>
           <Typography 
