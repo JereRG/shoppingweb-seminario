@@ -49,13 +49,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
   return (
-    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: 2 , transition:"200ms"}}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: 10, mr: 10 }}>
-        <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
-          <Typography variant="h2" sx={{ fontSize: 40, fontWeight: "bold", cursor: 'pointer' , ":hover":{
-            color:"white",
-            transition:"300ms"
-          }}} onClick={() => setCurrentPage('Inicio')}>
+    <Box sx={{ bgcolor: "#2b2b2b", color: "#DF3F32", p: { xs: 1, sm: 2 }, transition: "200ms" }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', ml: { xs: 1, sm: 2, md: 5, lg: 10 }, mr: { xs: 1, sm: 2, md: 5, lg: 10 } }}>
+        <Box sx={{ display: "flex", gap: { xs: 1, sm: 2, md: 3 }, alignItems: "center" }}>
+          <Typography 
+            variant="h2" 
+            sx={{ 
+              fontSize: { xs: 18, sm: 22, md: 26, lg: 30 }, 
+              fontWeight: "bold", 
+              cursor: 'pointer', 
+              ":hover": {
+                color: "white",
+                transition: "300ms"
+              } 
+            }} 
+            onClick={() => setCurrentPage('Inicio')}
+          >
             ShoppingWeb
           </Typography>
         </Box>
@@ -69,16 +78,30 @@ const Nav = ({ search, setSearch, setCurrentPage, cartItemCount }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </Search>
-        <Box sx={{ display: "flex", gap: 3, alignItems: 'center' }}>
-          <Inventory2Icon fontSize='large' sx={{ cursor: 'pointer', ":hover":{
-            color:"white",
-            transition:"300ms"
-          } }} onClick={() => setCurrentPage('Productos')} />
+        <Box sx={{ display: "flex", gap: { xs: 1, sm: 2, md: 3 }, alignItems: 'center' }}>
+          <Inventory2Icon 
+            fontSize='medium' 
+            sx={{ 
+              cursor: 'pointer', 
+              ":hover": {
+                color: "white",
+                transition: "300ms"
+              } 
+            }} 
+            onClick={() => setCurrentPage('Productos')} 
+          />
           <Badge badgeContent={cartItemCount} color="error">
-            <LocalGroceryStoreIcon fontSize='large' sx={{ cursor: 'pointer' , ":hover":{
-            color:"white",
-            transition:"300ms"
-          }}} onClick={() => setCurrentPage('Carrito')} />
+            <LocalGroceryStoreIcon 
+              fontSize='medium' 
+              sx={{ 
+                cursor: 'pointer', 
+                ":hover": {
+                  color: "white",
+                  transition: "300ms"
+                } 
+              }} 
+              onClick={() => setCurrentPage('Carrito')} 
+            />
           </Badge>
           <AccountMenu />
         </Box>

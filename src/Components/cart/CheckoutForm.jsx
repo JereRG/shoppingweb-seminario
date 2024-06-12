@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Box, Typography, TextField, Grid, Button, MenuItem, Select, FormControl, InputLabel, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Typography, TextField, Button, MenuItem, Select, FormControl, InputLabel, ListItemIcon, ListItemText, Grid } from '@mui/material';
 import { CreditCard, Payment, LocalAtm, AccountBalanceWallet, ShoppingBagOutlined } from '@mui/icons-material';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -40,14 +40,14 @@ const CheckoutForm = ({ cart }) => {
     };
 
     return (
-        <Box sx={{mr:20,ml:20, p: 5, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+        <Box sx={{ p: 2 }}>
             <Toaster
                 position="bottom-left"
                 reverseOrder={false}
             />
-            <Box sx={{ flex: 1 }}>
-                <Typography variant="h4" gutterBottom>Formulario de Compra</Typography>
-                <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <Typography variant="h4" gutterBottom>Formulario de Compra</Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         fullWidth
                         label="Nombre"
@@ -58,6 +58,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.nombre}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         fullWidth
                         label="Apellido"
@@ -68,6 +70,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.apellido}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Dirección"
@@ -78,6 +82,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.direccion}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         fullWidth
                         label="Ciudad"
@@ -88,6 +94,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.ciudad}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         fullWidth
                         label="Código Postal"
@@ -98,6 +106,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.codigoPostal}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         label="Teléfono"
@@ -108,6 +118,8 @@ const CheckoutForm = ({ cart }) => {
                         value={formData.telefono}
                         onChange={handleChange}
                     />
+                </Grid>
+                <Grid item xs={12}>
                     <FormControl fullWidth variant="outlined" margin="normal" required>
                         <InputLabel>Método de Pago</InputLabel>
                         <Select
@@ -147,30 +159,13 @@ const CheckoutForm = ({ cart }) => {
                             </MenuItem>
                         </Select>
                     </FormControl>
-                    <Button variant="contained" color="success" type="submit" startIcon={<ShoppingBagOutlined />}  sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12}>
+                    <Button variant="contained" color="primary" type="submit" startIcon={<ShoppingBagOutlined />} fullWidth onClick={handleSubmit}>
                         Pagar Ahora
                     </Button>
-                </form>
-            </Box>
-            <Box sx={{ flex: 1 }}>
-                <Typography variant="h4" gutterBottom>Resumen del Pedido</Typography>
-                <Grid container spacing={2}>
-                    {cart.map((product, index) => (
-                        <Grid item xs={12} key={index}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, borderBottom: '1px solid #ddd', pb: 2, mb: 2 }}>
-                                <img src={product.image} alt={product.title} style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: '5px' }} />
-                                <Box sx={{ flex: 1 }}>
-                                    <Typography variant="body1">{product.title}</Typography>
-                                    <Typography variant="body2">Cantidad: {product.quantity}</Typography>
-                                    <Typography variant="body2">Precio: ${product.price}</Typography>
-                                </Box>
-                                <Typography variant="body1">${(product.price * product.quantity).toFixed(2)}</Typography>
-                            </Box>
-                        </Grid>
-                    ))}
                 </Grid>
-                <Typography variant="h5" sx={{ mt: 2 }}>Total: ${total.toFixed(2)}</Typography>
-            </Box>
+            </Grid>
         </Box>
     );
 };

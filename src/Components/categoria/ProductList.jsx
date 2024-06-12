@@ -56,18 +56,18 @@ const ProductList = ({ search, setSearch, addToCart, viewProductDetails }) => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', mt: 7 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 7 }}>
         <CategoryFilter
           categories={categories}
           selectedCategories={selectedCategories}
           handleCategoryChange={handleCategoryChange}
         />
-        <Grid container spacing={2} sx={{ marginTop: 2, mr: 20, ml: 20 }}>
+        <Grid container spacing={2} sx={{ marginTop: 2 }}>
           {loading ? (
             [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={item}>
-                <Box sx={{ width: '100%', height: 370, marginRight: 4 }}>
-                  <Skeleton variant="rounded" width={210} height={210} />
+                <Box sx={{ width: '100%', height: 370, marginRight: { xs: 0, md: 4 } }}>
+                  <Skeleton variant="rounded" width="100%" height="100%" />
                 </Box>
               </Grid>
             ))

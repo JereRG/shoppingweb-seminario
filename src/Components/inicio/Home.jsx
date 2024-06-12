@@ -16,7 +16,8 @@ const Home = () => {
       image: "https://i.ibb.co/F4ZxrYd/2.png"
     },
   ];
-{/* Cards Marcas referidas Del inicio */}
+
+  {/* Cards Marcas referidas Del inicio */}
   const brands = [ 
     {
       name: "Nike",
@@ -61,26 +62,46 @@ const Home = () => {
 
   return (
     <>
-    <Box sx={{textAlign:"center"}}>
+    <Box sx={{ textAlign: "center" }}>
       <Slider {...settings}>
         {items.map((item, i) => (
-          <Box key={i} sx={{mr:2,ml:2,  textAlign:"center", bgcolor:"black", alignItems:"center", display:"flex", justifyContent:"center"}}>
-            <img src={item.image} alt={item.name} style={{width: '90%', height: '400px', objectFit: 'cover', margin: "auto" }} />
+          <Box 
+            key={i} 
+            sx={{
+              textAlign: "center", 
+              bgcolor: "black", 
+              alignItems: "center", 
+              display: "flex", 
+              justifyContent: "center"
+            }}>
+            <img 
+              src={item.image} 
+              alt={item.name} 
+              style={{
+                width: '90%', 
+                height: 'auto', 
+                maxHeight: '400px', 
+                objectFit: 'cover', 
+                margin: "auto" 
+              }} 
+            />
           </Box>
         ))}
       </Slider>
-      <Typography variant='h6' sx={{fontWeight:"bold", mt:10, mb:5}}>Marcas Asociadas</Typography>
-      <Grid container spacing={2} sx={{ p: "0px 200px"  }}>
+      <Typography variant='h6' sx={{ fontWeight: "bold", mt: 10, mb: 5 }}>
+        Marcas Asociadas
+      </Typography>
+      <Grid container spacing={2} sx={{ px: { xs: 2, sm: 4, md: 8, lg: 16 } }}>
         {brands.map((brand, i) => (
           <Grid item xs={12} sm={6} md={4} key={i}>
-            <Card sx={{
-                  ":hover":{
-                    bgcolor:"lightgray",
-                    transition:"400ms",
-                    boxShadow: 10,
-
-                  }
-                }}>
+            <Card 
+              sx={{
+                ":hover": {
+                  bgcolor: "lightgray",
+                  transition: "400ms",
+                  boxShadow: 10,
+                }
+              }}>
               <CardMedia
                 component="img"
                 height="200"
@@ -101,7 +122,7 @@ const Home = () => {
       </Grid>
     </Box>
     <Footer />
-      </>
+    </>
   );
 };
 

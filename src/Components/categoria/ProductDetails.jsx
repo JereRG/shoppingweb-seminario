@@ -14,21 +14,21 @@ const ProductDetails = ({ product, addToCart, setCurrentPage }) => {
       >
         Seguir Comprando
       </Button>
-      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 4 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: 4 }}>
         <CardMedia
           component="img"
           image={product.image || 'default-image-url'}
           alt={product.title || 'Sin título'}
           sx={{ width: '100%', maxWidth: 500, height: 'auto' }}
         />
-        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-          <Typography variant="h4" component="h1">
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flex: 1 }}>
+          <Typography variant="h4" component="h1" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             {product.title}
           </Typography>
-          <Typography variant="h5" color="text.primary" sx={{ mt: 2 }}>
+          <Typography variant="h5" color="text.primary" sx={{ mt: 2, textAlign: { xs: 'center', md: 'left' } }}>
             ${product.price}
           </Typography>
-          <Typography variant="body1" sx={{ mt: 2 }}>
+          <Typography variant="body1" sx={{ mt: 2, textAlign: { xs: 'center', md: 'left' } }}>
             {product.description}
           </Typography>
           <Button
@@ -36,7 +36,7 @@ const ProductDetails = ({ product, addToCart, setCurrentPage }) => {
             color="error"
             startIcon={<LocalGroceryStore />}
             onClick={() => addToCart(product)}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, alignSelf: { xs: 'center', md: 'flex-start' } }}
           >
             Agregar al Carrito
           </Button>

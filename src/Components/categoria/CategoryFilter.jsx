@@ -4,18 +4,18 @@ import { Box, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/mat
 const CategoryFilter = ({ categories, selectedCategories, handleCategoryChange }) => {
   return (
     <Box sx={{
-        ml: 5,
-        mr: -8,
-        width: 400,
-        bgcolor: "white",
-        height: 300,
-        p: 2,
-        borderRadius: "10px",
-        border: "lightgrey solid 1px"
+        width: '100%',
+        mt: 4,
+        mr: 3,
+        maxWidth: 400,
+        bgcolor: 'white',
+        p: 7,
+        borderRadius: 2,
+        border: '1px solid lightgrey',
     }}>
-      <Typography variant="h5">Filtrar por Categorías</Typography>
+      <Typography variant="h5" sx={{ mb: 1, textAlign: 'center' }}>Filtrar por Categorías</Typography>
       <hr />
-      <FormGroup>
+      <FormGroup sx={{ display: 'flex', flexDirection: 'column' }}>
         {categories.map(category => (
           <FormControlLabel
             key={category}
@@ -23,9 +23,11 @@ const CategoryFilter = ({ categories, selectedCategories, handleCategoryChange }
               <Checkbox
                 checked={selectedCategories.includes(category)}
                 onChange={() => handleCategoryChange(category)}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
               />
             }
             label={category}
+            sx={{ mb: 1 }}
           />
         ))}
       </FormGroup>

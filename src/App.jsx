@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Nav from './Components/navbar/Nav';
 import Home from './Components/inicio/Home';
 import ProductList from './Components/categoria/ProductList';
@@ -79,7 +79,9 @@ const App = () => {
   return (
     <Box sx={{ bgcolor: "#eeeeee", position: 'relative', minHeight: "100vh"}}>
       <Nav search={search} setSearch={setSearch} setCurrentPage={setCurrentPage} cartItemCount={cart.length} />
-      {renderPage()}
+      <Container maxWidth="lg" sx={{ pt: 4, pb: 6 }}>
+        {renderPage()}
+      </Container>
     </Box>
   );
 };

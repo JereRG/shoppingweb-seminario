@@ -7,7 +7,7 @@ const ProductCard = ({ product, addToCart, viewProductDetails }) => {
     <Card
       sx={{ 
         border: "solid 1px #f0f0f0",
-        maxWidth: 345, 
+        maxWidth: "100%", // Hacer que el ancho máximo sea el 100% para adaptarse al contenedor
         height: "100%", 
         display: "flex", 
         flexDirection: "column", 

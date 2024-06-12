@@ -3,12 +3,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useState } from 'react';
 import { IconButton } from '@mui/material';
-
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -18,9 +16,6 @@ export default function AccountMenu() {
   };
   const handleClose = () => {
     setAnchorEl(null);
-  };
-  const handleLogout = () => {
-    
   };
 
   return (
@@ -33,9 +28,14 @@ export default function AccountMenu() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
       >
-        <Avatar sx={{ width: 50, height: 50, border: "solid 2px #504f4f "}}
-        src="https://estaticos-cdn.prensaiberica.es/clip/958630c2-98d1-4b52-bbc1-79f84d8a07ca_16-9-aspect-ratio_default_0.jpg" />
-        
+        <Avatar 
+          sx={{ 
+            width: { xs: 30, sm: 36, md: 40 }, 
+            height: { xs: 30, sm: 36, md: 40 }, 
+            border: "solid 2px #504f4f" 
+          }}
+          src="https://estaticos-cdn.prensaiberica.es/clip/958630c2-98d1-4b52-bbc1-79f84d8a07ca_16-9-aspect-ratio_default_0.jpg" 
+        />
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -58,7 +58,10 @@ export default function AccountMenu() {
               mr: 1,
             },
             '& .MuiMenuItem-root': {
-              color: 'white', 
+              color: 'white',
+              '&:hover': {
+                bgcolor: 'rgba(255, 255, 255, 0.08)',
+              },
             },
             '&::before': {
               content: '""',
@@ -79,9 +82,11 @@ export default function AccountMenu() {
         disableScrollLock={true}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar src="https://estaticos-cdn.prensaiberica.es/clip/958630c2-98d1-4b52-bbc1-79f84d8a07ca_16-9-aspect-ratio_default_0.jpg" /> Perfil
+          <Avatar 
+            src="https://estaticos-cdn.prensaiberica.es/clip/958630c2-98d1-4b52-bbc1-79f84d8a07ca_16-9-aspect-ratio_default_0.jpg" 
+          /> Perfil
         </MenuItem>
-        <Divider sx={{ bgcolor: 'gray' }} /> 
+        <Divider sx={{ bgcolor: 'gray' }} />
         <MenuItem onClick={handleClose}>
           <ListItemIcon sx={{ color: 'white' }}>
             <Settings fontSize="small" />
