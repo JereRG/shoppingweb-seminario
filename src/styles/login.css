@@ -39,7 +39,7 @@
     margin-top: 20px;
   }
   
-  .form .input {
+  .form .input-1 {
     width: 90%;
     background: white;
     border: none;
@@ -51,15 +51,15 @@
     transition: 400ms;
   }
   
-  .form .input::-moz-placeholder {
+  .form .input-1::-moz-placeholder {
     color: rgb(255, 0, 0);
   }
   
-  .form .input::placeholder {
+  .form .input-1::placeholder {
     color: rgb(170, 170, 170);
   }
   
-  .form .input:focus {
+  .form .input-1:focus {
     outline: none;
     border-inline: 2px solid #DF3F32;
   }

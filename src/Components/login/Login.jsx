@@ -32,10 +32,10 @@ export const Login = ({ onLoginSuccess }) => {
     return (
         <>
             <div className="contenedor">
-                <Typography variant="h4">Iniciar Sesion</Typography>
+                <Typography variant="h4-">Iniciar Sesion</Typography>
                 <form onSubmit={handleLogin} className="form">
                     <input
-                        className="input"
+                        className="input-1"
                         type="text"
                         id="username"
                         value={username}
@@ -43,7 +43,7 @@ export const Login = ({ onLoginSuccess }) => {
                         placeholder="Usuario"
                     />
                     <input
-                        className="input"
+                        className="input-1"
                         type="password"
                         id="password"
                         value={password}
